@@ -1,7 +1,5 @@
 package org.example.auz.blind75.arrays;
 
-import sun.nio.cs.ext.MacHebrew;
-
 /**
  * 11. Container With Most Water
  * https://leetcode.com/problems/container-with-most-water/description/
