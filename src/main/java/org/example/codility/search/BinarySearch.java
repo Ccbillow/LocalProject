@@ -26,7 +26,7 @@ public class BinarySearch {
     }
 
     private static int helper(int[] A, int target, int start, int end) {
-        if (start < end) {
+        if (start > end) {
             return -1;
         }
 

@@ -42,4 +42,25 @@ public class MergeAppointment {
         result.add(tmp);
         return result;
     }
+
+    public List<Appointment> merge1(List<Appointment> appointments) {
+        if (appointments == null || appointments.size() <= 1) {
+            return appointments;
+        }
+
+        appointments.sort(Comparator.comparing(a -> a.start));
+
+        List<Appointment> result = new ArrayList<>();
+        Appointment tmp = appointments.get(0);
+        for (int i = 1; i < appointments.size(); i++) {
+            if (tmp.end < appointments.get(i).start) {
+                result.add(tmp);
+                tmp = appointments.get(i);
+            } else {
+                tmp.end = Math.max(tmp.end, appointments.get(i).end);
+            }
+        }
+        result.add(tmp);
+        return result;
+    }
 }
