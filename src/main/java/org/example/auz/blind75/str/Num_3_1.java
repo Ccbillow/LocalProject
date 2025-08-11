@@ -10,7 +10,7 @@ import java.util.Set;
  * time: O(n)
  * space: O(n)
  */
-public class Num_3 {
+public class Num_3_1 {
 
     public static int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
