@@ -1,4 +1,4 @@
-package org.example.auz.blind75.tool;
+package org.example.auz.blind75.tool.graph;
 
 public class Vertex {
 

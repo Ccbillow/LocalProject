@@ -1,6 +1,6 @@
 package org.example.auz.practice.graph;
 
-import org.example.auz.blind75.tool.Vertex;
+import org.example.auz.blind75.tool.graph.Vertex;
 
 /**
  * graph

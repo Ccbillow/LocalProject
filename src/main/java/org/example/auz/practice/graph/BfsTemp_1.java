@@ -1,7 +1,5 @@
 package org.example.auz.practice.graph;
 
-import org.example.auz.blind75.tool.Vertex;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 
