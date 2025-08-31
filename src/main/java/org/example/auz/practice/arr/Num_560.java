@@ -10,21 +10,35 @@ import java.util.Map;
 public class Num_560 {
 
     public int subarraySum(int[] nums, int k) {
-        int len = nums.length;
-        int[] preSum = new int[len + 1];
+        int n = nums.length;
+        int[] preSum = new int[n + 1];
         preSum[0] = 0;
-        for (int i = 1; i <= len; i++) {
+        for (int i = 1; i <= n; i++) {
             preSum[i] = preSum[i - 1] + nums[i - 1];
         }
 
         Map<Integer, Integer> val2Count = new HashMap<>();
-        int res = 0;
+        int count = 0;
 
         for (int i = 0; i < preSum.length; i++) {
-            int val = preSum[i] - k;
-            res = res + val2Count.getOrDefault(val, 0);
-            val2Count.put(preSum[i],val2Count.getOrDefault(preSum[i], 0) + 1);
+            int need = preSum[i] - k;
+            if (val2Count.containsKey(need)) {
+                count = count + val2Count.get(need);
+            }
+
+            if (!val2Count.containsKey(preSum[i])) {
+                val2Count.put(preSum[i], 1);
+            } else {
+                val2Count.put(preSum[i], val2Count.get(preSum[i]) + 1);
+            }
         }
-        return res;
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Num_560 test = new Num_560();
+        int[] arr = {1, 1, 1};
+        System.out.println(test.subarraySum(arr, 2));
     }
 }

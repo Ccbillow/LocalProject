@@ -2,7 +2,6 @@ package org.example.auz.practice.graph;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
 
 /**
  * 547. Number of Provinces
@@ -47,7 +46,7 @@ public class Num_547_2 {
     void dfs(int[][] isConnected, int i, boolean[] visited) {
         visited[i] = true;
 
-        for (int j = 0; j < isConnected.length; j++) {
+        for (int j = 0; j < isConnected[i].length; j++) {
             if (visited[j]) {
                 continue;
             }

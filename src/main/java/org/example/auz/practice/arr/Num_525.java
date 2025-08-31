@@ -9,16 +9,24 @@ import java.util.Map;
  */
 public class Num_525 {
     public int findMaxLength(int[] nums) {
-        int len = nums.length;
-        int[] preSum = new int[len + 1];
+        int n = nums.length;
+        int[] tmp = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == 0) {
+                tmp[i] = -1;
+            } else {
+                tmp[i] = 1;
+            }
+        }
+
+        int[] preSum = new int[n + 1];
         preSum[0] = 0;
-        for (int i = 1; i <= len; i++) {
-            preSum[i] = preSum[i - 1] + (nums[i - 1] == 0 ? -1 : 1);
+        for (int i = 1; i <= n; i++) {
+            preSum[i] = preSum[i - 1] + tmp[i - 1];
         }
 
         Map<Integer, Integer> val2Index = new HashMap<>();
         int res = 0;
-
         for (int i = 0; i < preSum.length; i++) {
             if (!val2Index.containsKey(preSum[i])) {
                 val2Index.put(preSum[i], i);
@@ -27,5 +35,11 @@ public class Num_525 {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {0, 1, 1, 1, 1, 1, 0, 0, 0};
+        Num_525 test = new Num_525();
+        test.findMaxLength(arr);
     }
 }

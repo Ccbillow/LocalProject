@@ -20,6 +20,7 @@ public class Num_947_2 {
 
     void dfs(int[][] stones, int i, boolean[] visited) {
         visited[i] = true;
+
         for (int j = 0; j < stones.length; j++) {
             if (visited[j]) {
                 continue;

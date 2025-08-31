@@ -14,10 +14,10 @@ public class Num_523 {
         preSum[i] % k = preSum[j] % k
      */
     public boolean checkSubarraySum(int[] nums, int k) {
-        int len = nums.length;
-        int[] preSum = new int[len + 1];
+        int n = nums.length;
+        int[] preSum = new int[n + 1];
         preSum[0] = 0;
-        for (int i = 1; i <= len; i++) {
+        for (int i = 1; i <= n; i++) {
             preSum[i] = preSum[i - 1] + nums[i - 1];
         }
 
@@ -29,10 +29,10 @@ public class Num_523 {
             }
         }
 
-        for (int i = 1; i < preSum.length; i++) {
-            int need = preSum[i] % k;
+        for (int j = 1; j < preSum.length; j++) {
+            int need = preSum[j] % k;
             if (val2Index.containsKey(need)) {
-                if (i - val2Index.get(need) >= 2) {
+                if (j - val2Index.get(need) >= 2) {
                     return true;
                 }
             }

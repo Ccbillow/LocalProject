@@ -7,15 +7,19 @@ package org.example.auz.practice.graph;
 public class Num_547_1 {
 
     public int findCircleNum(int[][] isConnected) {
-        UF uf = new UF(isConnected.length);
-        for (int i = 0; i < isConnected.length; i++) {
-            for (int j = i + 1; j < isConnected[0].length; j++) {
+        int m = isConnected.length;
+        int n = isConnected[0].length;
+
+        UF uf = new UF(m);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (isConnected[i][j] == 1) {
                     uf.union(i, j);
                 }
             }
         }
-        return uf.count;
+
+        return uf.count();
     }
 
     class UF {
@@ -30,35 +34,29 @@ public class Num_547_1 {
             }
         }
 
-        public int count() {
+        int count() {
             return count;
         }
 
-        public int find(int x) {
+        int find(int x) {
             if (parent[x] == x) {
                 return x;
+            } else {
+                return parent[x] = find(parent[x]);
             }
-
-            int root = find(parent[x]);
-
-            parent[x] = root;
-            return root;
         }
 
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-
-            if (rootP == rootQ) {
-                return;
+        void union(int x, int y) {
+            int rootx = find(x);
+            int rooty = find(y);
+            if (rootx != rooty) {
+                count--;
+                parent[rootx] = rooty;
             }
-
-            parent[rootP] = rootQ;
-            count--;
         }
 
-        public boolean connected(int p, int q) {
-            return find(p) == find(q);
+        boolean connected(int x, int y) {
+            return find(x) == find(y);
         }
     }
 }

@@ -2,6 +2,8 @@ package org.example.auz.practice.graph;
 
 import org.example.auz.blind75.tool.graph.UnionFind;
 
+import java.util.Arrays;
+
 /**
  * 1361. Validate Binary Tree Nodes
  * https://leetcode.com/problems/validate-binary-tree-nodes/description/?show=1
@@ -9,44 +11,87 @@ import org.example.auz.blind75.tool.graph.UnionFind;
 public class Num_1361 {
 
     public boolean validateBinaryTreeNodes(int n, int[] leftChild, int[] rightChild) {
-        UnionFind uf = new UnionFind(n);
-        int[] indegree = new int[n];
+        UF uf = new UF(n);
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
 
         for (int i = 0; i < n; i++) {
-            if (leftChild[i] != -1) {
-                int child = leftChild[i];
-                indegree[child]++;
-                if (indegree[child] > 1) {
+            int child = leftChild[i];
+            if (child != -1) {
+                if (parent[child] != -1) {
                     return false;
                 }
+
+                parent[child] = i;
+
                 if (uf.connected(i, child)) {
                     return false;
                 }
+
                 uf.union(i, child);
             }
-            if (rightChild[i] != -1) {
-                int child = rightChild[i];
-                indegree[child]++;
-                if (indegree[child] > 1) {
+        }
+        for (int i = 0; i < n; i++) {
+            int child = rightChild[i];
+            if (child != -1) {
+                if (parent[child] != -1) {
                     return false;
                 }
+
+                parent[child] = i;
+
                 if (uf.connected(i, child)) {
                     return false;
                 }
+
                 uf.union(i, child);
             }
         }
 
-        int root = 0;
+        int rootCount = 0;
         for (int i = 0; i < n; i++) {
-            if (indegree[i] == 0) {
-                root++;
+            if (parent[i] == -1) {
+                rootCount++;
             }
         }
-        if (root != 1) {
+        if (rootCount != 1) {
             return false;
         }
 
-        return uf.count() == 1;
+        return uf.count == 1;
+    }
+
+    class UF {
+        int count;
+        int[] parent;
+
+        public UF(int n) {
+            count = n;
+            parent = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+        }
+
+        int find(int x) {
+            if (parent[x] == x) {
+                return x;
+            } else {
+                return parent[x] = find(parent[x]);
+            }
+        }
+
+        void union(int x, int y) {
+            int rootx = find(x);
+            int rooty = find(y);
+            if (rootx != rooty) {
+                parent[rootx] = rooty;
+                count--;
+            }
+        }
+
+        boolean connected(int x, int y) {
+            return find(x) == find(y);
+        }
     }
 }
