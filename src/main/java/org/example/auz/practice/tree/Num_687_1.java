@@ -8,30 +8,35 @@ import org.example.auz.blind75.tool.TreeNode;
  */
 public class Num_687_1 {
 
-    int max = 0;
+    int res = 0;
     public int longestUnivaluePath(TreeNode root) {
-        traverse(root);
-        return max;
-    }
-
-    int traverse(TreeNode root) {
         if (root == null) {
             return 0;
         }
+
+        traverse(root);
+        return res;
+    }
+
+    private int traverse(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
 
         int left = traverse(root.left);
         int right = traverse(root.right);
 
         int leftPath = 0;
         int rightPath = 0;
-        if (root.left != null && root.left.val == root.val) {
+        if (left != 0 && root.val == root.left.val) {
             leftPath = left + 1;
         }
-        if (root.right != null && root.right.val == root.val) {
+        if (right != 0 && root.val == root.right.val) {
             rightPath = right + 1;
         }
 
-        max = Math.max(max, leftPath + rightPath);
+        res = Math.max(res, leftPath + rightPath);
         return Math.max(leftPath, rightPath);
     }
 }

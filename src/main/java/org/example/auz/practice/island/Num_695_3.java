@@ -1,18 +1,24 @@
-package org.example.auz.practice.graph;
+package org.example.auz.practice.island;
 
 /**
  * 695. Max Area of Island
  * https://leetcode.com/problems/max-area-of-island/description/
  */
-public class Num_695_1 {
+public class Num_695_3 {
+
+    int n;
+    int m;
 
     public int maxAreaOfIsland(int[][] grid) {
+        n = grid.length;
+        m = grid[0].length;
+
         int res = 0;
 
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 if (grid[i][j] == 1) {
-                    res = Math.max(res,  dfs(grid, i, j));
+                    res = Math.max(res, dfs(grid, i, j));
                 }
             }
         }
@@ -20,7 +26,7 @@ public class Num_695_1 {
     }
 
     private int dfs(int[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length) {
+        if (i < 0 || i >= n || j < 0 || j >= m) {
             return 0;
         }
 

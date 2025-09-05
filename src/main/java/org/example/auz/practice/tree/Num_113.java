@@ -14,28 +14,35 @@ import java.util.List;
 public class Num_113 {
 
     List<List<Integer>> res = new ArrayList<>();
+
     LinkedList<Integer> path = new LinkedList<>();
 
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
         traverse(root, targetSum);
         return res;
     }
 
-    void traverse(TreeNode root, int targetSum) {
+    private void traverse(TreeNode root, int targetSum) {
         if (root == null) {
             return;
         }
 
         path.addLast(root.val);
 
-        if (root.left == null && root.right == null) {
-            if (root.val == targetSum) {
-                res.add(new LinkedList<>(path));
-            }
+        if (root.left == null && root.right == null && root.val == targetSum) {
+            res.add(new LinkedList<>(path));
+            path.removeLast();
+            return;
         }
 
-        traverse(root.left, targetSum - root.val);
-        traverse(root.right, targetSum - root.val);
+        targetSum = targetSum - root.val;
+        traverse(root.left, targetSum);
+        traverse(root.right, targetSum);
+
         path.removeLast();
     }
 }

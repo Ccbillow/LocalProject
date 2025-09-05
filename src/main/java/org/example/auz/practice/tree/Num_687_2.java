@@ -10,6 +10,8 @@ public class Num_687_2 {
 
     int max = 0;
     public int longestUnivaluePath(TreeNode root) {
+        if (root == null) return 0;
+
         traverse(root, root.val);
         return max;
     }
@@ -24,10 +26,10 @@ public class Num_687_2 {
 
         max = Math.max(max, left + right);
 
-        if (root.val != parent) {
-            return 0;
+        if (root.val == parent) {
+            return 1 + Math.max(left, right);
         }
 
-        return 1 + Math.max(left, right);
+        return 0;
     }
 }

@@ -6,13 +6,13 @@ import org.example.auz.blind75.tool.TreeNode;
  * 543. Diameter of Binary Tree
  * https://leetcode.com/problems/diameter-of-binary-tree/description/
  */
-public class Num_543 {
+public class Num_543_1 {
 
-    int max = 0;
+    int res = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
         traverse(root);
-        return max;
+        return res;
     }
 
     int traverse(TreeNode root) {
@@ -23,8 +23,7 @@ public class Num_543 {
         int left = traverse(root.left);
         int right = traverse(root.right);
 
-        max = Math.max(max, left + right);
-
+        res = Math.max(res, left + right);
         return Math.max(left, right) + 1;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
  * 310. Minimum Height Trees
  * https://leetcode.com/problems/minimum-height-trees/description/?show=1
  */
-public class Num_310 {
+public class Num_310_1 {
 
 
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {

@@ -1,4 +1,4 @@
-package org.example.auz.practice.graph;
+package org.example.auz.practice.island;
 
 /**
  * 200. Number of Islands

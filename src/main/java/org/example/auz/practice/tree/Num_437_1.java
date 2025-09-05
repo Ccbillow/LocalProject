@@ -8,7 +8,7 @@ import java.util.HashMap;
  * 437. Path Sum III
  * https://leetcode.com/problems/path-sum-iii/description/
  */
-public class Num_437 {
+public class Num_437_1 {
 
     HashMap<Long, Integer> preSumCount = new HashMap<>();
 

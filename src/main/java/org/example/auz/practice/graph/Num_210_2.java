@@ -1,7 +1,5 @@
 package org.example.auz.practice.graph;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,7 +45,6 @@ public class Num_210_2 {
         }
         return res;
     }
-
 
 
     private List<Integer>[] build(int numCourses, int[][] prerequisites) {

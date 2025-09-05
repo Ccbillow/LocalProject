@@ -4,7 +4,7 @@ package org.example.auz.practice.arr;
  * 53. Maximum Subarray
  * https://leetcode.com/problems/maximum-subarray/description/
  */
-public class Num_53 {
+public class Num_53_1 {
 
     public int maxSubArray(int[] nums) {
         int curSum = nums[0];

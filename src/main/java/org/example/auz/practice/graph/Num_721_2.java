@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Num_721 {
+public class Num_721_2 {
 
 
     public static List<List<String>> accountsMerge(List<List<String>> accounts) {

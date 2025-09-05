@@ -1,4 +1,4 @@
-package org.example.auz.practice.graph;
+package org.example.auz.practice.island;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
