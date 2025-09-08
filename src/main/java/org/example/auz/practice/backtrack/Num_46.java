@@ -1,4 +1,4 @@
-package org.example.auz.practice.graph.dfs;
+package org.example.auz.practice.backtrack;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,10 +11,12 @@ import java.util.List;
  */
 public class Num_46 {
 
+    boolean[] visited;
+    LinkedList<Integer> path = new LinkedList<>();
     List<List<Integer>> res = new ArrayList<>();
+
     public List<List<Integer>> permute(int[] nums) {
-        LinkedList<Integer> path = new LinkedList<>();
-        boolean[] visited = new boolean[nums.length];
+        visited = new boolean[nums.length];
 
         backtrack(nums, path, visited);
         return res;
