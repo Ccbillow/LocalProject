@@ -39,7 +39,9 @@ public class Num_695_2 {
             for (int[] direction : directions) {
                 int newX = x + direction[0];
                 int newY = y + direction[1];
-                if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].length && grid[newX][newY] == 1) {
+                if (newX >= 0 && newX < grid.length
+                        && newY >= 0 && newY < grid[0].length
+                        && grid[newX][newY] == 1) {
                     q.addLast(new int[]{newX, newY});
                     grid[newX][newY] = 0;
                 }

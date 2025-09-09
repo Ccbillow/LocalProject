@@ -1,4 +1,4 @@
-package org.example.auz.practice.graph;
+package org.example.auz.practice.island;
 
 /**
  * 1254. Number of Closed Islands
