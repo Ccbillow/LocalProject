@@ -12,7 +12,7 @@ import java.util.Set;
  * 752. open-the-lock
  * https://leetcode.cn/problems/open-the-lock/description/
  */
-public class Num_752 {
+public class Num_752_1 {
 
     public int openLock(String[] deadends, String target) {
         Set<String> dead = new HashSet<>(Arrays.asList(deadends));

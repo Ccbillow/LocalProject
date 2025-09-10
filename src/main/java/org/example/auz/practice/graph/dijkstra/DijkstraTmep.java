@@ -1,18 +1,21 @@
 package org.example.auz.practice.graph.dijkstra;
 
-import ch.qos.logback.core.joran.conditional.IfAction;
-
-import java.awt.geom.PathIterator;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
+
+/**
+ * dijkstra
+ *
+ * time: O((V + E) * log V)
+ * space: O(V + E)
+ */
 public class DijkstraTmep {
 
-    int[] shortestPath(List<int[]>[] graph, int start) {
+    int[] dijkstra(List<int[]>[] graph, int start) {
         int[] dist = new int[graph.length];
         Arrays.fill(dist, Integer.MAX_VALUE);
         int[] path = new int[graph.length];
@@ -55,7 +58,7 @@ public class DijkstraTmep {
         Arrays.fill(dist, Integer.MAX_VALUE);
         Arrays.fill(path, -1);
 
-        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) ->  a[1] - b[1]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
         pq.add(new int[]{src, 0});
         dist[src] = 0;
 
