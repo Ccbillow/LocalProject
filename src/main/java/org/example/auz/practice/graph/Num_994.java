@@ -30,7 +30,8 @@ public class Num_994 {
                     int newX = x + dir[0];
                     int newY = y + dir[1];
 
-                    if (newX >= 0 && newY >= 0 && newX < grid.length && newY < grid[0].length && grid[newX][newY] == 1) {
+                    if (newX >= 0 && newY >= 0 && newX < grid.length
+                            && newY < grid[0].length && grid[newX][newY] == 1) {
                         grid[newX][newY] = 2;
                         q.addLast(new int[]{newX, newY});
                     }

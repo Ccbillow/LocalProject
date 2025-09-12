@@ -1,4 +1,4 @@
-package org.example.auz.practice.graph.bfs;
+package org.example.auz.practice.backtrack;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,13 +6,11 @@ import java.util.Arrays;
  * 924. minimize-malware-spread
  * https://leetcode.cn/problems/minimize-malware-spread/description/?show=1
  */
-public class Num_924_2 {
+public class Num_924_3 {
 
 
     public int minMalwareSpread(int[][] graph, int[] initial) {
         int n = graph.length;
-
-        // connected component (UF)
         UF uf = new UF(n);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < i; j++) {
@@ -22,26 +20,23 @@ public class Num_924_2 {
             }
         }
 
-        // infect number of each component
-        int[] cnt = new int[n];
-        for (int i : initial) {
-            cnt[uf.find(i)]++;
+        int[] infectCnt = new int[n];
+        for (int i : infectCnt) {
+            infectCnt[uf.find(i)]++;
         }
 
-        // low index at begin
         Arrays.sort(initial);
         int res = initial[0];
         int max = -1;
 
-        // max size of one infect number
         for (int i : initial) {
             int root = uf.find(i);
 
-            if (cnt[root] == 1) {
+            if (infectCnt[root] == 1) {
                 int size = uf.size(root);
                 if (size > max) {
-                    res = i;
                     max = size;
+                    res = i;
                 }
             }
         }
@@ -63,15 +58,11 @@ public class Num_924_2 {
             }
         }
 
-        int count() {
-            return count;
-        }
-
         int size(int x) {
             return size[x];
         }
 
-        int find(int x) {
+        int find(int x){
             if (parent[x] == x) {
                 return x;
             } else {
@@ -82,20 +73,16 @@ public class Num_924_2 {
         void union(int x, int y) {
             int rootx = find(x);
             int rooty = find(y);
-            if (rooty != rootx) {
-                if (size[rootx] > size[rooty]) {
+            if (rootx != rooty) {
+                if (size[rootx] >= size[rooty]) {
                     parent[rooty] = rootx;
-                    size[rootx] = size[rootx] + size[rooty];
+                    size[rootx] = size[rooty] + size[rootx];
                 } else {
                     parent[rootx] = rooty;
                     size[rooty] = size[rootx] + size[rooty];
                 }
+                count--;
             }
-            count--;
-        }
-
-        boolean connected(int x, int y) {
-            return find(x) == find(y);
         }
     }
 

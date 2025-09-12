@@ -4,20 +4,32 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * 1926. Nearest Exit from Entrance in Maze
- * https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/description/?show=1
+ * 1730. Shortest Path to Get Food
  */
-public class Num_1926 {
+public class Num_1730 {
 
-    public int nearestExit(char[][] maze, int[] entrance) {
-        int m = maze.length, n = maze[0].length;
-        boolean[][] visited = new boolean[m][n];
+    public int getFood(char[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+
+        int starti = -1, startj = -1;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == '*') {
+                    starti = i;
+                    startj = j;
+                    break;
+                }
+            }
+        }
 
         Deque<int[]> q = new ArrayDeque<>();
-        q.add(new int[]{entrance[0], entrance[1]});
-        visited[entrance[0]][entrance[1]] = true;
+        q.addLast(new int[]{starti, startj});
+        boolean[][] visited = new boolean[m][n];
+        visited[starti][startj] = true;
 
         int res = 0;
+
         int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
         while (!q.isEmpty()) {
@@ -27,7 +39,7 @@ public class Num_1926 {
                 int x = cur[0];
                 int y = cur[1];
 
-                if (res != 0 && (x == 0 || x == m - 1 || y == 0 || y == n - 1)) {
+                if (grid[x][y] == '#') {
                     return res;
                 }
 
@@ -39,13 +51,12 @@ public class Num_1926 {
                         if (visited[newx][newy]) {
                             continue;
                         }
-
-                        if (maze[newx][newy] == '+') {
+                        if (grid[newx][newy] == 'X') {
                             continue;
                         }
 
-                        q.add(new int[]{newx, newy});
                         visited[newx][newy] = true;
+                        q.addLast(new int[]{newx, newy});
                     }
                 }
             }
