@@ -19,11 +19,11 @@ public class Num_542_2 {
             Arrays.fill(dist[i], -1);
         }
 
-        Deque<int[]> q = new ArrayDeque<>();
+        Deque<int[]> stack = new ArrayDeque<>();
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (mat[i][j] == 0) {
-                    q.addLast(new int[]{i, j});
+                    stack.addLast(new int[]{i, j});
                     dist[i][j] = 0;
                 }
             }
@@ -31,8 +31,8 @@ public class Num_542_2 {
 
         int[][] dirs = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
-        while (!q.isEmpty()) {
-            int[] cur = q.removeLast();
+        while (!stack.isEmpty()) {
+            int[] cur = stack.removeLast();
             int x = cur[0];
             int y = cur[1];
             int d = dist[x][y];
@@ -43,7 +43,7 @@ public class Num_542_2 {
                 if (newx >= 0 && newx < m && newy >= 0 && newy < n) {
                     if (dist[newx][newy] == -1 || d + 1 < dist[newx][newy]) {
                         dist[newx][newy] = d + 1;
-                        q.addLast(new int[]{newx, newy});
+                        stack.addLast(new int[]{newx, newy});
                     }
                 }
             }

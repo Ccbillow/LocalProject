@@ -51,4 +51,13 @@ public class Num_542_1 {
 
         return dist;
     }
+
+    public static void main(String[] args) {
+        Num_542_1 test = new Num_542_1();
+        int[][] mat = {{0, 0, 0, 0, 0,},
+                {1, 1, 0, 0, 0},
+                {1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1}};
+        test.updateMatrix(mat);
+    }
 }

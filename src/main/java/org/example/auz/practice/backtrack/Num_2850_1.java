@@ -8,7 +8,7 @@ import java.util.List;
  *
  * https://leetcode.cn/problems/minimum-moves-to-spread-stones-over-grid/description/
  */
-public class Num_2850 {
+public class Num_2850_1 {
     int res = Integer.MAX_VALUE;
 
     boolean[] visited;

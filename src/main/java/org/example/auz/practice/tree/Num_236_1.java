@@ -6,7 +6,7 @@ import org.example.auz.blind75.tool.TreeNode;
  * 236. Lowest Common Ancestor of a Binary Tree
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
  */
-public class Num_236 {
+public class Num_236_1 {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {

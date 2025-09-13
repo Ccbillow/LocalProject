@@ -10,7 +10,7 @@ import java.util.Set;
  * 127. word-ladder
  * https://leetcode.cn/problems/word-ladder/description/
  */
-public class Num_127 {
+public class Num_127_1 {
 
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         if (!wordList.contains(endWord)) {
@@ -64,7 +64,7 @@ public class Num_127 {
     }
 
     public static void main(String[] args) {
-        Num_127 test = new Num_127();
+        Num_127_1 test = new Num_127_1();
 
         List<String> wordlist = List.of("hot", "dot", "dog", "lot", "log", "cog");
 //        System.out.println(test.ladderLength("hit", "cog", wordlist));
