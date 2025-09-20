@@ -20,7 +20,11 @@ public class Num_2850_1 {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (grid[i][j] > 1) {
-                    from.add(new int[]{i, j});
+                    int more = grid[i][j];
+                    while (more > 1) {
+                        from.add(new int[]{i, j});
+                        more--;
+                    }
                 } else if (grid[i][j] == 0) {
                     to.add(new int[]{i, j});
                 }

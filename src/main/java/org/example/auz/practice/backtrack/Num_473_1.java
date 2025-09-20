@@ -4,7 +4,7 @@ package org.example.auz.practice.backtrack;
  * 473. matchsticks-to-square
  * https://leetcode.cn/problems/matchsticks-to-square/description/
  */
-public class Num_473 {
+public class Num_473_1 {
 
     public boolean makesquare(int[] matchsticks) {
         return partion(matchsticks, 4);

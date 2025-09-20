@@ -24,6 +24,7 @@ public class Num_543_1 {
         int right = traverse(root.right);
 
         res = Math.max(res, left + right);
+
         return Math.max(left, right) + 1;
     }
 }

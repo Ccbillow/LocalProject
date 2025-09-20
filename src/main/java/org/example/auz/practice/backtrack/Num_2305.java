@@ -23,6 +23,7 @@ public class Num_2305 {
             res = Math.min(res, max);
             return;
         }
+
         for (int i = 0; i < children.length; i++) {
             if (children[i] + cookies[idx] > res) {
                 continue;

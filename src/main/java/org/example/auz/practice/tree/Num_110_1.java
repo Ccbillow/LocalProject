@@ -6,7 +6,7 @@ import org.example.auz.blind75.tool.TreeNode;
  * 110. Balanced Binary Tree
  * https://leetcode.com/problems/balanced-binary-tree/description/
  */
-public class Num_110 {
+public class Num_110_1 {
 
     boolean res = true;
     public boolean isBalanced(TreeNode root) {

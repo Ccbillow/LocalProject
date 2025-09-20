@@ -34,7 +34,7 @@ public class Num_2850_2 {
     }
 
     private void dfs(List<int[]> from, List<int[]> to, int steps) {
-        if (to.size() == 0) {
+        if (to.isEmpty()) {
             res = Math.min(res, steps);
         }
 

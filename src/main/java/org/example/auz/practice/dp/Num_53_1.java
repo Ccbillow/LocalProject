@@ -1,4 +1,4 @@
-package org.example.auz.practice.arr;
+package org.example.auz.practice.dp;
 
 /**
  * 53. Maximum Subarray

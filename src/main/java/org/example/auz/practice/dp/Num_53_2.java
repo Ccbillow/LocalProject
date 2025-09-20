@@ -1,4 +1,4 @@
-package org.example.auz.practice.arr;
+package org.example.auz.practice.dp;
 
 /**
  * 53. Maximum Subarray
@@ -7,7 +7,7 @@ package org.example.auz.practice.arr;
 public class Num_53_2 {
 
     public int maxSubArray(int[] nums) {
-        int res = 0;
+        int res = Integer.MIN_VALUE;
         int sum = 0;
         for (int i = 0; i < nums.length; i++) {
             sum = sum + nums[i];

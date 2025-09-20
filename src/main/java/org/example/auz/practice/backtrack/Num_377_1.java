@@ -8,7 +8,7 @@ import java.util.Deque;
  * 377. combination-sum-iv
  * https://leetcode.cn/problems/combination-sum-iv/description/
  */
-public class Num_377 {
+public class Num_377_1 {
 
     int res = 0;
     Deque<Integer> stack = new ArrayDeque<>();
@@ -41,7 +41,7 @@ public class Num_377 {
     }
 
     public static void main(String[] args) {
-        Num_377 test = new Num_377();
+        Num_377_1 test = new Num_377_1();
 
         int[] arr = {1, 2, 3};
         test.combinationSum4(arr, 4);
