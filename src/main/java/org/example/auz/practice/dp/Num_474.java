@@ -7,6 +7,29 @@ package org.example.auz.practice.dp;
 public class Num_474 {
 
     public int findMaxForm(String[] strs, int m, int n) {
-        return 0;
+        int[][][] dp = new int[strs.length + 1][m + 1][n + 1];
+
+        for (int i = 1; i <= strs.length; i++) {
+            String cur = strs[i - 1];
+            int zero = 0;
+            int one = 0;
+            for (char c : cur.toCharArray()) {
+                if (c == '0') zero++;
+                if (c == '1') one++;
+            }
+
+            for (int j = 0; j <= m; j++) {
+                for (int k = 0; k <= n; k++) {
+                    if (j < zero || k < one) {
+                        dp[i][j][k] = dp[i - 1][j][k];
+                    } else {
+                        dp[i][j][k] = Math.max(dp[i - 1][j][k],
+                                dp[i - 1][j - zero][j - one] + 1);
+                    }
+                }
+            }
+        }
+
+        return dp[strs.length][m][n];
     }
 }
