@@ -1,10 +1,9 @@
 package org.example.auz.practice.dp;
 
 /**
- * 53. Maximum Subarray
- * https://leetcode.com/problems/maximum-subarray/description/
+ * Minimum Subarray
  */
-public class Num_53_6 {
+public class Num_53_6_2 {
 
     public int maxSubArray(int[] nums) {
         int[] preSum = new int[nums.length + 1];
@@ -13,11 +12,11 @@ public class Num_53_6 {
             preSum[i] = preSum[i - 1] + nums[i - 1];
         }
 
-        int res = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+        int res = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
         for (int p : preSum) {
-            res = Math.max(res, p - min);
-            min = Math.min(min, p);
+            res = Math.min(res, p - max);
+            max = Math.max(p, max);
         }
         return res;
     }

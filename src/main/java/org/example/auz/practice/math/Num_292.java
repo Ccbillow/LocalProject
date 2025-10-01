@@ -7,6 +7,6 @@ package org.example.auz.practice.math;
 public class Num_292 {
 
     public boolean canWinNim(int n) {
-        return false;
+        return n % 4 != 0;
     }
 }

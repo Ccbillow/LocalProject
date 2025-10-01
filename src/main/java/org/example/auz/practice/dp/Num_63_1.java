@@ -22,6 +22,7 @@ public class Num_63_1 {
         if (i < 0 || i >= m || j < 0 || j >= n) {
             return 0;
         }
+
         if (obstacleGrid[i][j] == 1) {
             return 0;
         }
