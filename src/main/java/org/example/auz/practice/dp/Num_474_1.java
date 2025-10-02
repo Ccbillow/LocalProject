@@ -4,7 +4,7 @@ package org.example.auz.practice.dp;
  * 474. ones-and-zeroes
  * https://leetcode.cn/problems/ones-and-zeroes/description/
  */
-public class Num_474 {
+public class Num_474_1 {
 
     public int findMaxForm(String[] strs, int m, int n) {
         int[][][] dp = new int[strs.length + 1][m + 1][n + 1];
