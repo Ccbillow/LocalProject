@@ -4,7 +4,7 @@ package org.example.auz.practice.dp;
  * 1594. maximum-non-negative-product-in-a-matrix
  * https://leetcode.cn/problems/maximum-non-negative-product-in-a-matrix/description/
  */
-public class Num_1594_1 {
+public class Num_1594_2 {
 
     public int maxProductPath(int[][] grid) {
         int mod = 1_000_000_007;
